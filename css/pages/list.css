@@ -126,3 +126,14 @@
 .page-list .meta .editors li a:hover {
     text-decoration: underline;
 }
+
+.user div {
+    margin-bottom: 0.5rem; /* Espaciado entre usuarios */
+}
+
+.editors li img {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+    vertical-align: middle; /* Alineación correcta del ícono */
+}

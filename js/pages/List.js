@@ -40,9 +40,12 @@ export default {
                 <div class="level" v-if="level">
                     <h1>{{ level.name }}</h1>
                     <LevelAuthors :author="level.author" :creators="level.creators" :verifier="level.verifier"></LevelAuthors>
-                    <div v-for="vid in video" :key="vid">
-                        <iframe :src="vid" frameborder="0" allowfullscreen></iframe>
+                    <div v-for="record in level.records" :key="record.percent">
+                        <div v-for="(vid, index) in record.links" :key="index">
+                            <iframe :src="vid" frameborder="0" allowfullscreen></iframe>
+                        </div>
                     </div>
+
                     <ul class="stats">
                         <li>
                             <div class="type-title-sm">Points when completed</div>
@@ -66,9 +69,12 @@ export default {
                             <td class="percent">
                                 <p>{{ record.percent }}%</p>
                             </td>
-                            <td class="user">
-                                <a :href="record.link" target="_blank" class="type-label-lg">{{ record.user }}</a>
+                           <td class="user">
+                                <span v-for="(user, index) in record.users" :key="index">
+                                    <a :href="record.links[index]" target="_blank" class="type-label-lg">{{ user }}</a><br>
+                                </span>
                             </td>
+
                             <td class="mobile">
                                 <img v-if="record.mobile" :src="\`/assets/phone-landscape\${store.dark ? '-dark' : ''}.svg\`" alt="Mobile">
                             </td>

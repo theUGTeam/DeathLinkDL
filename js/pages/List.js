@@ -69,6 +69,7 @@ export default {
     <td class="user">
         <a v-for="(user, index) in record.user" :key="index" :href="record.link[index]" target="_blank" class="type-label-lg">
             {{ user }}
+             <br>
         </a>
     </td>
     <td class="mobile">

@@ -1,0 +1,25 @@
+{
+    "id": 123456,
+    "name": "Sample Level 4",
+    "author": "Different Publisher",
+    "creators": ["Solo_Creator"],
+    "verifier": ["Verificador1", "Verificador2"], 
+    "verification": ["https://youtu.be/VacJZ9J9QQE?si=bECvkHpqJbT_cgeD", "https://youtu.be/VacJZ9J9QQE?si=bECvkHpqJbT_cgeD"],
+    "percentToQualify": 70,
+    "password": "46290",
+    "records": [
+        {
+            "user": ["SamplePlayer1", "SamplePlayer2"],
+            "percent": 100,
+            "link": ["https://youtu.be/VacJZ9J9QQE?si=bECvkHpqJbT_cgeD", "https://youtu.be/VacJZ9J9QQE?si=bECvkHpqJbT_cgeD"],
+            "hz": 60
+        },
+        {
+            "user": ["SampleAloneVIctor"],
+            "percent": 85,
+            "link": ["https://youtu.be/VacJZ9J9QQE?si=bECvkHpqJbT_cgeD"],
+            "hz": 240
+        }
+    ]
+    
+}

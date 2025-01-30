@@ -91,3 +91,11 @@
 .page-leaderboard .player .table a:hover {
     text-decoration: underline;
 }
+.clickable-row {
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.clickable-row:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* Color de fondo al pasar el mouse */
+}

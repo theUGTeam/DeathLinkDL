@@ -47,46 +47,49 @@ export default {
                         <h3>{{ entry.total }}</h3>
                         <h2 v-if="entry.verified.length > 0">Verified ({{ entry.verified.length}})</h2>
                         <table class="table">
-                            <tr v-for="score in entry.verified">
-                                <td class="rank">
-                                    <p>#{{ score.rank }}</p>
-                                </td>
-                                <td class="level">
-                                    <a class="type-label-lg" target="_blank" :href="score.link">{{ score.level }}</a>
-                                </td>
-                                <td class="score">
-                                    <p>+{{ localize(score.score) }}</p>
-                                </td>
-                            </tr>
-                        </table>
+    <tr v-for="score in entry.verified" :key="score.level" @click="redirectTo(score.link)" class="clickable-row">
+        <td class="rank">
+            <p>#{{ score.rank }}</p>
+        </td>
+        <td class="level">
+            <span class="type-label-lg">{{ score.level }}</span>
+        </td>
+        <td class="score">
+            <p>+{{ localize(score.score) }}</p>
+        </td>
+    </tr>
+</table>
+
                         <h2 v-if="entry.completed.length > 0">Completed ({{ entry.completed.length }})</h2>
                         <table class="table">
-                            <tr v-for="score in entry.completed">
-                                <td class="rank">
-                                    <p>#{{ score.rank }}</p>
-                                </td>
-                                <td class="level">
-                                    <a class="type-label-lg" target="_blank" :href="score.link">{{ score.level }}</a>
-                                </td>
-                                <td class="score">
-                                    <p>+{{ localize(score.score) }}</p>
-                                </td>
-                            </tr>
-                        </table>
+    <tr v-for="score in entry.completed" :key="score.level" @click="redirectTo(score.link)" class="clickable-row">
+        <td class="rank">
+            <p>#{{ score.rank }}</p>
+        </td>
+        <td class="level">
+            <span class="type-label-lg">{{ score.level }}</span>
+        </td>
+        <td class="score">
+            <p>+{{ localize(score.score) }}</p>
+        </td>
+    </tr>
+</table>
+
                         <h2 v-if="entry.progressed.length > 0">Progressed ({{entry.progressed.length}})</h2>
                         <table class="table">
-                            <tr v-for="score in entry.progressed">
-                                <td class="rank">
-                                    <p>#{{ score.rank }}</p>
-                                </td>
-                                <td class="level">
-                                    <a class="type-label-lg" target="_blank" :href="score.link">{{ score.percent }}% {{ score.level }}</a>
-                                </td>
-                                <td class="score">
-                                    <p>+{{ localize(score.score) }}</p>
-                                </td>
-                            </tr>
-                        </table>
+    <tr v-for="score in entry.progressed" :key="score.level" @click="redirectTo(score.link)" class="clickable-row">
+        <td class="rank">
+            <p>#{{ score.rank }}</p>
+        </td>
+        <td class="level">
+            <span class="type-label-lg">{{ score.percent }}% {{ score.level }}</span>
+        </td>
+        <td class="score">
+            <p>+{{ localize(score.score) }}</p>
+        </td>
+    </tr>
+</table>
+
                     </div>
                 </div>
             </div>
@@ -106,5 +109,10 @@ export default {
     },
     methods: {
         localize,
-    },
+        redirectTo(link) {
+            if (link) {
+                window.open(link, '_blank');
+            }
+        },
+    },    
 };

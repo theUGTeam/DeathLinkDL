@@ -67,15 +67,8 @@ export default {
                                 <p>{{ record.percent }}%</p>
                             </td>
                             <td class="user">
-    <span v-for="(user, index) in (record.users || [record.user])" :key="index">
-        <a v-if="(record.links || [])[index]" :href="record.links[index]" target="_blank" class="type-label-lg">
-            {{ user }}
-        </a>
-        <span v-else>{{ user }}</span>
-        <br>
-    </span>
-</td>
-
+                                <a :href="record.link" target="_blank" class="type-label-lg">{{ record.user }}</a>
+                            </td>
                             <td class="mobile">
                                 <img v-if="record.mobile" :src="\`/assets/phone-landscape\${store.dark ? '-dark' : ''}.svg\`" alt="Mobile">
                             </td>

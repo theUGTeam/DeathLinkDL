@@ -3,7 +3,7 @@
     "name": "Sample Level 4",
     "author": "Different Publisher",
     "creators": ["Solo_Creator"],
-    "verifier": ["Verificador1", "Verificador2"], 
+    "verifier": ["Verifier1", "Verifier2"], 
     "verification": ["https://youtu.be/VacJZ9J9QQE?si=bECvkHpqJbT_cgeD", "https://youtu.be/VacJZ9J9QQE?si=bECvkHpqJbT_cgeD"],
     "percentToQualify": 70,
     "password": "46290",
@@ -15,7 +15,7 @@
             "hz": 60
         },
         {
-            "user": ["SampleAloneVIctor"],
+            "user": ["SampleVIctor"],
             "percent": 85,
             "link": ["https://youtu.be/VacJZ9J9QQE?si=bECvkHpqJbT_cgeD"],
             "hz": 240

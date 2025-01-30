@@ -40,12 +40,9 @@ export default {
                 <div class="level" v-if="level">
                     <h1>{{ level.name }}</h1>
                     <LevelAuthors :author="level.author" :creators="level.creators" :verifier="level.verifier"></LevelAuthors>
-                    <div v-for="record in level.records" :key="record.percent">
-                        <div v-for="(vid, index) in record.links" :key="index">
-                            <iframe :src="vid" frameborder="0" allowfullscreen></iframe>
-                        </div>
+                    <div v-for="vid in video" :key="vid">
+                        <iframe :src="vid" frameborder="0" allowfullscreen></iframe>
                     </div>
-
                     <ul class="stats">
                         <li>
                             <div class="type-title-sm">Points when completed</div>
@@ -69,11 +66,15 @@ export default {
                             <td class="percent">
                                 <p>{{ record.percent }}%</p>
                             </td>
-                           <td class="user">
-                                <span v-for="(user, index) in record.users" :key="index">
-                                    <a :href="record.links[index]" target="_blank" class="type-label-lg">{{ user }}</a><br>
-                                </span>
-                            </td>
+                            <td class="user">
+    <span v-for="(user, index) in (record.users || [record.user])" :key="index">
+        <a v-if="(record.links || [])[index]" :href="record.links[index]" target="_blank" class="type-label-lg">
+            {{ user }}
+        </a>
+        <span v-else>{{ user }}</span>
+        <br>
+    </span>
+</td>
 
                             <td class="mobile">
                                 <img v-if="record.mobile" :src="\`/assets/phone-landscape\${store.dark ? '-dark' : ''}.svg\`" alt="Mobile">

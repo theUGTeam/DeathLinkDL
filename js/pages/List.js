@@ -40,7 +40,9 @@ export default {
                 <div class="level" v-if="level">
                     <h1>{{ level.name }}</h1>
                     <LevelAuthors :author="level.author" :creators="level.creators" :verifier="level.verifier"></LevelAuthors>
-                    <iframe class="video" id="videoframe" :src="video" frameborder="0"></iframe>
+                    <div v-for="vid in video" :key="vid">
+                        <iframe :src="vid" frameborder="0" allowfullscreen></iframe>
+                    </div>
                     <ul class="stats">
                         <li>
                             <div class="type-title-sm">Points when completed</div>
@@ -141,15 +143,19 @@ export default {
             return this.list[this.selected][0];
         },
         video() {
-            if (!this.level.showcase) {
-                return embed(this.level.verification);
-            }
-
-            return embed(
-                this.toggledShowcase
-                    ? this.level.showcase
-                    : this.level.verification
-            );
+            const verificationVideos = Array.isArray(this.level.verification)
+                ? this.level.verification
+                : [this.level.verification];
+    
+            const showcaseVideos = Array.isArray(this.level.showcase)
+                ? this.level.showcase
+                : [this.level.showcase];
+    
+            const selectedVideos = this.toggledShowcase
+                ? showcaseVideos
+                : verificationVideos;
+    
+            return selectedVideos.map(embed); // Genera todos los videos
         },
     },
     async mounted() {

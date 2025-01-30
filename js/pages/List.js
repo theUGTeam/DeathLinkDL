@@ -39,7 +39,7 @@ export default {
             <div class="level-container">
                 <div class="level" v-if="level">
                     <h1>{{ level.name }}</h1>
-                    <LevelAuthors :author="level.author" :creators="level.creators" :verifier="level.verifier"></LevelAuthors>
+                    <LevelAuthors :author="level.author" :creators="level.creators" :verifier="Array.isArray(level.verifier) ? level.verifier.join(', ') : level.verifier"></LevelAuthors>
                     <div v-for="vid in video" :key="vid">
                         <iframe :src="vid" frameborder="0" allowfullscreen></iframe>
                     </div>
@@ -62,20 +62,23 @@ export default {
                     <p v-else-if="selected +1 <= 150"><strong>100%</strong> or better to qualify</p>
                     <p v-else>This level does not accept new records.</p>
                     <table class="records">
-                        <tr v-for="record in level.records" class="record">
-                            <td class="percent">
-                                <p>{{ record.percent }}%</p>
-                            </td>
-                            <td class="user">
-                                <a :href="record.link" target="_blank" class="type-label-lg">{{ record.user }}</a>
-                            </td>
-                            <td class="mobile">
-                                <img v-if="record.mobile" :src="\`/assets/phone-landscape\${store.dark ? '-dark' : ''}.svg\`" alt="Mobile">
-                            </td>
-                            <td class="hz">
-                                <p>{{ record.hz }}Hz</p>
-                            </td>
-                        </tr>
+<tr v-for="record in level.records" class="record">
+    <td class="percent">
+        <p>{{ record.percent }}%</p>
+    </td>
+    <td class="user">
+        <a v-for="(user, index) in record.user" :key="index" :href="record.link[index]" target="_blank" class="type-label-lg">
+            {{ user }}
+        </a>
+    </td>
+    <td class="mobile">
+<img v-if="record.mobile" :src="'/assets/phone-landscape' + (store.dark ? '-dark' : '') + '.svg'" alt="Mobile">
+    </td>
+    <td class="hz">
+        <p>{{ record.hz }}Hz</p>
+    </td>
+</tr>
+
                     </table>
                 </div>
                 <div v-else class="level" style="height: 100%; justify-content: center; align-items: center;">
@@ -144,9 +147,9 @@ export default {
         },
         video() {
             const verificationVideos = Array.isArray(this.level.verification)
-                ? this.level.verification
-                : [this.level.verification];
-    
+            ? this.level.verification.map(embed)
+            : [embed(this.level.verification)];
+                    
             const showcaseVideos = Array.isArray(this.level.showcase)
                 ? this.level.showcase
                 : [this.level.showcase];

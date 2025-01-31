@@ -16,7 +16,7 @@ export default {
     template: `
         <div class="level-authors">
             <template v-if="selfVerified">
-                <div class="type-title-sm">Creator & Verifier</div>
+                <div class="type-title-sm">Creator & First DL Victors</div>
                 <p class="type-body">
                     <span>{{ author }}</span>
                 </p>
@@ -26,7 +26,7 @@ export default {
                 <p class="type-body">
                     <span>{{ author }}</span>
                 </p>
-                <div class="type-title-sm">Verifier</div>
+                <div class="type-title-sm">First DeathLink Victors</div>
                 <p class="type-body">
                     <span>{{ verifier }}</span>
                 </p>
@@ -39,7 +39,7 @@ export default {
                         ><span v-if="index < creators.length - 1">, </span>
                     </template>
                 </p>
-                <div class="type-title-sm">Verifier</div>
+                <div class="type-title-sm">First DeathLink Victors</div>
                 <p class="type-body">
                     <span>{{ verifier }}</span>
                 </p>

@@ -4,14 +4,14 @@
     "author": "Different Publisher",
     "creators": ["Solo_Creator"],
     "verifier": ["Verifier1", "Verifier2"], 
-    "verification": ["https://youtu.be/VacJZ9J9QQE?si=bECvkHpqJbT_cgeD", "https://youtu.be/VacJZ9J9QQE?si=bECvkHpqJbT_cgeD"],
+    "verification": ["https://youtu.be/VacJZ9J9QQE?si=bECvkHpqJbT_cgeD"],
     "percentToQualify": 70,
     "password": "46290",
     "records": [
         {
             "user": ["SamplePlayer1", "SamplePlayer2"],
             "percent": 100,
-            "link": ["https://youtu.be/VacJZ9J9QQE?si=bECvkHpqJbT_cgeD", "https://youtu.be/VacJZ9J9QQE?si=bECvkHpqJbT_cgeD"],
+            "link": ["https://youtu.be/VacJZ9J9QQE?si=bECvkHpqJbT_cgeD"],
             "hz": 60
         },
         {

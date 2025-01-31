@@ -41,7 +41,7 @@ export default {
                     <h1>{{ level.name }}</h1>
                     <LevelAuthors :author="level.author" :creators="level.creators" :verifier="Array.isArray(level.verifier) ? level.verifier.join(', ') : level.verifier"></LevelAuthors>
                     <div v-for="vid in video" :key="vid">
-                        <iframe :src="vid" frameborder="0"  width="828" height="480" allowfullscreen></iframe>
+                        <iframe :src="vid" frameborder="0"  width="552" height="320" allowfullscreen></iframe>
                     </div>
                     <ul class="stats">
                         <li>
